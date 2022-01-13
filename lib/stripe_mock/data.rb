@@ -1326,6 +1326,22 @@ module StripeMock
       }.merge(params)
     end
 
+    def self.mock_billing_portal_session(params = {})
+      bps_id = params[:id] || 'bps_h4j3k2l1h4j3k2l14h3j2E4SF'
+      {
+        id: bps_id,
+        object: "billing_portal.session",
+        configuration: nil,
+        created: 1642033095,
+        customer: params[:customer],
+        livemode: false,
+        locale: nil,
+        on_behalf_of: nil,
+        return_url: params[:return_url],
+        url: "https://billing.stripe.com/session/{SESSION_SECRET}"
+      }.merge(params)
+    end
+
     def self.mock_checkout_session(params = {})
       cs_id = params[:id] || "test_cs_default"
       currency = params[:currency] || StripeMock.default_currency
